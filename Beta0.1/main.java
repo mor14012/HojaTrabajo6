@@ -23,7 +23,7 @@ public class main{
 		------------*/
 		while(true){
 			try{
-				System.out.println("\nSeleccione la implementación de Set que desea utilizar:");
+				System.out.println("\nSeleccione la implementacion de Set que desea utilizar:");
 				for(int i=0; i<implementation.length; i++)
 					System.out.println("   "+i+". "+implementation[i]);
 				Scanner input = new Scanner(System.in);

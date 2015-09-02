@@ -12,5 +12,6 @@ public class factory<E>{
 		if(string.equals("LinkedHashSet"))
 			return new LinkedHashSet<E>();
 		return null;
+		
 	}
 }
