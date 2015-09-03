@@ -82,81 +82,57 @@ public class main{
 		/*-----------
 		/    SET     /
 		------------*/
-		System.out.println("\nResultados");
-		System.out.println("Java "+javadev.size());
-		System.out.println("Web "+webdev.size());
-		System.out.println("Phone "+phonedev.size());
-
-		System.out.println("\nDesarrolladores con experiencia en Java, web y celulares.");
 		Set java = Factory.getSet(implementation[option]);
 		java.addAll(javadev);
 		Set web = Factory.getSet(implementation[option]);
 		web.addAll(webdev);
 		Set phone = Factory.getSet(implementation[option]);
 		phone.addAll(phonedev);
+		System.out.println("Java "+javadev.size());
+		System.out.println("Web "+webdev.size());
+		System.out.println("Phone "+phonedev.size());
 
-		java.retainAll(phone);
-		web.retainAll(java);
-		Object [] array1 = web.toArray();
+		conjunto Conjunto = new conjunto();
+		Set resultado = Factory.getSet(implementation[option]);
+
+		System.out.println("\nResultados");
+
+		System.out.println("\nDesarrolladores con experiencia en Java, web y celulares.");
+		resultado = Conjunto.javawebphone(javadev, webdev, phonedev);
+		Object [] array1 = resultado.toArray();
 		for(int i=0; i<array1.length; i++){
 			System.out.println(array1[i]);
 		}
-		java.clear();
-		web.clear();
-		phone.clear();
-
+		
 		System.out.println("\nDesarrolladores con experiencia en Java pero que no tengan experiencia en web.");
-		web.addAll(webdev);
-		java.addAll(javadev);
-		java.removeAll(web);
-		Object [] array2 = java.toArray();
+		resultado = Conjunto.javanoweb(javadev, webdev);
+		Object [] array2 = resultado.toArray();
 		for(int i=0; i<array2.length; i++){
 			System.out.println(array2[i]);
 		}
-		java.clear();
-		web.clear();
-		phone.clear();
 
 		System.out.println("\nDesarrolladores con experiencia en web y celulares, pero que no tengan experiencia en java");
-		web.addAll(webdev);
-		java.addAll(javadev);
-		phone.addAll(phonedev);		
-		web.retainAll(phone);
-		web.removeAll(java);
+		resultado = Conjunto.webphonenojava(javadev, webdev, phonedev);
 		Object [] array3 = web.toArray();
 		for(int i=0; i<array3.length; i++){
 			System.out.println(array3[i]);
 		}
-		java.clear();
-		web.clear();
-		phone.clear();
 
 		System.out.println("\nDesarrolladores con experiencia en web o celulares, pero que no tengan experiencia en celulares");
-		web.addAll(webdev);
-		java.addAll(javadev);
-		phone.addAll(phonedev);	
-		web.addAll(phone);
-		web.removeAll(java);
-		Object [] array4 = web.toArray();
+		resultado = Conjunto.webophonenojava(javadev, webdev, phonedev);
+		Object [] array4 = resultado.toArray();
 		for(int i=0; i<array4.length; i++){
 			System.out.println(array4[i]);
 		}
-		java.clear();
-		web.clear();
-		phone.clear();
+
 
 
 		System.out.println("\nEl conjunto de desarrolladores java es un subconjunto de desarrolladores web.");
-		web.addAll(webdev);
-		java.addAll(javadev);
-		phone.addAll(phonedev);	
-		if(webdev.containsAll(javadev))
+		boolean decision = Conjunto.javasubweb(javadev, webdev);
+		if(decision)
 			System.out.println("SI");
 		else
-			System.out.println("NO");
-		java.clear();
-		web.clear();
-		phone.clear();
+			System.out.println("NO");			
 
 		System.out.println("\nEl conjunto con la cantidad mas grande de desarrolladores y sus nombres");
 		Set bigger = Factory.getSet(implementation[option]);
