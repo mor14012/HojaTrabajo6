@@ -16,6 +16,7 @@ public class main{
 	public static void main(String[] args) {
 		String [] implementation = {"HashSet", "TreeSet", "LinkedHashSet"};
 		String [] dev = {"Desarrollador Java", "Desarrollador Web", "Desarrollador Celulares"};
+		//Set javadev, webdev, phonedev;
 		
 		Conjuntos javadev;
 		Conjuntos webdev;
@@ -39,6 +40,10 @@ public class main{
 					webdev = new Conjuntos(implementation[option]);
 					phonedev = new Conjuntos(implementation[option]);
 					conjunto = new Conjuntos(implementation[option]);
+					
+					//javadev = Factory.getSet(implementation[option]);
+					//webdev = Factory.getSet(implementation[option]);
+					//phonedev = Factory.getSet(implementation[option]);
 					break;
 				}
 			}
@@ -111,17 +116,17 @@ public class main{
         if(conjunto.Mayor() == 0) { 
         	System.out.println("" + jDev); 
         	System.out.println("7. Del conjunto que tenga la mayor cantidad de desarrolladores, desplegar la lista de los nombres de sus integrantes en orden ascendente.");
-            //System.out.println(javadev.getOrdenado());	
+            System.out.println(javadev.getOrdenado());	
         }
         if(conjunto.Mayor() == 1) {
         	System.out.println("" + wDev); 
         	System.out.println("7. Del conjunto que tenga la mayor cantidad de desarrolladores, desplegar la lista de los nombres de sus integrantes en orden ascendente.");
-            //System.out.println(webdev.getOrdenado());
+            System.out.println(webdev.getOrdenado());
         }
         if(conjunto.Mayor() == 2) { 
         	System.out.println("" + pDev); 
         	System.out.println("7. Del conjunto que tenga la mayor cantidad de desarrolladores, desplegar la lista de los nombres de sus integrantes en orden ascendente.");
-            //System.out.println(phonedev.getOrdenado());
+            System.out.println(phonedev.getOrdenado());
         }
         
         

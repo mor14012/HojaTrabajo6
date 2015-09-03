@@ -4,6 +4,9 @@
 import java.util.Set;
 import java.util.SortedSet;
 import java.util.TreeSet;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 /**
  * 
@@ -14,9 +17,10 @@ public class Conjuntos {
 	
 	Factory fc = new Factory();
 	private Set<String> conjunto;
-	//private Set<String> conjuntoOrdenado;
+	private List<String> ordenado;
+	//private List<String> cOrdenado;
 	private Set<String> cnjt;
-	SortedSet<String> orden = new TreeSet<String>();
+	//SortedSet<String> orden = new TreeSet<String>();
 	private int mayor;
 	private String cMayor;
 	private String subconjunto;
@@ -25,7 +29,7 @@ public class Conjuntos {
 	public Conjuntos(String string){
 		conjunto = fc.getSet(string);
 		cnjt = fc.getSet(string);
-		//conjuntoOrdenado = fc.getSet(string);
+		ordenado = new ArrayList<String>();
 		mayor = 0;
 		cMayor = "";
 		subconjunto = "";
@@ -34,7 +38,7 @@ public class Conjuntos {
 	
 	public void agregarElemento(String e){
 		conjunto.add(e);
-		//conjuntoOrdenado.add(e);
+		ordenado.add(e);
 	}
 	
 	
@@ -98,7 +102,7 @@ public class Conjuntos {
 			cMayor = "El conjunto mayor es el de desarrolladores Web";
 		}
 		
-		if (c.size() > mayor){
+		if (c.size() > j.size() && c.size() > w.size()){
 			mayor = 2; // 2 = cel es mayor
 			cMayor = "El conjunto mayor es el de desarrolladores Celulares";
 		}else {
@@ -115,7 +119,8 @@ public class Conjuntos {
 		return mayor;
 	}
 	
-	//public Set<String> getOrdenado (){
-		//return conjuntoOrdenado;
-	//}
+	public List<String> getOrdenado (){
+		Collections.sort(ordenado);
+		return ordenado;
+	}
 }
