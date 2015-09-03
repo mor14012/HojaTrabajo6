@@ -63,14 +63,23 @@ public class main{
 				for(int i=0; i<dev.length; i++){
 					System.out.print(dev[i]+": ");
 					String grupo = input.nextLine();
-					if(grupo.equals("y")){
-						if(i==0)
-							javadev.add(nombre);
-						if(i==1)
-							webdev.add(nombre);
-						if(i==2)
-							phonedev.add(nombre);
+					while(true){
+						if(grupo.equals("y")){
+							if(i==0)
+								javadev.add(nombre);
+							if(i==1)
+								webdev.add(nombre);
+							if(i==2)
+								phonedev.add(nombre);
+							break;
+						}
+						else{
+							if(!grupo.equals("n"))
+								System.out.println("Ingrese una opcion valida");
+						}
+
 					}
+					
 				}
 			}
 			catch(Exception e){
