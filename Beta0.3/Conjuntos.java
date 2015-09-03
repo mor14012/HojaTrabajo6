@@ -1,6 +1,13 @@
-/**
- * 
- */
+/*
+Universidad del Valle de Guatemala
+Algoritmos y Estructura de Datos
+Sección: 10
+Diego Morales. Carne: 14012
+Yosemite Noe. Carne: 14413
+03/09/2015
+Hoja de Trabajo 6
+*/
+
 import java.util.Set;
 import java.util.SortedSet;
 import java.util.TreeSet;
@@ -8,19 +15,12 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-/**
- * 
- * @author Yosemite
- *
- */
 public class Conjuntos {
 	
 	Factory fc = new Factory();
 	private Set<String> conjunto;
 	private List<String> ordenado;
-	//private List<String> cOrdenado;
 	private Set<String> cnjt;
-	//SortedSet<String> orden = new TreeSet<String>();
 	private int mayor;
 	private String cMayor;
 	private String subconjunto;
@@ -45,8 +45,6 @@ public class Conjuntos {
 	public Set<String> getConjunto(){
 		return conjunto;
 	}
-	
-	//j = java, w = web, c = celulares
 	
 	public Set<String> interseccionTres(Set<String> j, Set<String> w, Set<String> c){
 		
@@ -90,8 +88,6 @@ public class Conjuntos {
 			return subconjunto = "No es un subconjunto";
 		}
 	}
-	
-	
 	
 	public String conjuntoMayor(Set<String> j, Set<String> w, Set<String> c){
 		if (j.size() > w.size()){

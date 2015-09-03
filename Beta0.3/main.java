@@ -2,9 +2,9 @@
 Universidad del Valle de Guatemala
 Algoritmos y Estructura de Datos
 Sección: 10
-Diego Morales. Carné: 14012
-Yosemite. Carné: 14
-27/08/2015
+Diego Morales. Carne: 14012
+Yosemite Noe. Carne: 14413
+03/09/2015
 Hoja de Trabajo 6
 */
 
@@ -16,8 +16,6 @@ public class main{
 	public static void main(String[] args) {
 		String [] implementation = {"HashSet", "TreeSet", "LinkedHashSet"};
 		String [] dev = {"Desarrollador Java", "Desarrollador Web", "Desarrollador Celulares"};
-		//Set javadev, webdev, phonedev;
-		
 		Conjuntos javadev;
 		Conjuntos webdev;
 		Conjuntos phonedev;
@@ -40,10 +38,6 @@ public class main{
 					webdev = new Conjuntos(implementation[option]);
 					phonedev = new Conjuntos(implementation[option]);
 					conjunto = new Conjuntos(implementation[option]);
-					
-					//javadev = Factory.getSet(implementation[option]);
-					//webdev = Factory.getSet(implementation[option]);
-					//phonedev = Factory.getSet(implementation[option]);
 					break;
 				}
 			}
