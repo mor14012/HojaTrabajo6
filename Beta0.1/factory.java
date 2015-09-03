@@ -3,7 +3,7 @@ import java.util.HashSet;
 import java.util.TreeSet;
 import java.util.LinkedHashSet;
 
-public class factory<E>{
+public class Factory<E>{
 	public Set<E> getSet(String string){
 		if(string.equals("HashSet"))
 			return new HashSet<E>();

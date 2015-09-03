@@ -2,6 +2,8 @@
  * 
  */
 import java.util.Set;
+import java.util.SortedSet;
+import java.util.TreeSet;
 
 /**
  * 
@@ -10,17 +12,21 @@ import java.util.Set;
  */
 public class Conjuntos {
 	
-	factory fc = new factory();
+	Factory fc = new Factory();
 	private Set<String> conjunto;
+	//private Set<String> conjuntoOrdenado;
 	private Set<String> cnjt;
-	private int Mayor;
+	SortedSet<String> orden = new TreeSet<String>();
+	private int mayor;
 	private String cMayor;
 	private String subconjunto;
+	
 	
 	public Conjuntos(String string){
 		conjunto = fc.getSet(string);
 		cnjt = fc.getSet(string);
-		Mayor = 0;
+		//conjuntoOrdenado = fc.getSet(string);
+		mayor = 0;
 		cMayor = "";
 		subconjunto = "";
 		
@@ -28,6 +34,7 @@ public class Conjuntos {
 	
 	public void agregarElemento(String e){
 		conjunto.add(e);
+		//conjuntoOrdenado.add(e);
 	}
 	
 	
@@ -73,7 +80,7 @@ public class Conjuntos {
 	public String subconjunto(Set<String> j, Set<String> w){
 		cnjt.clear();
 		cnjt.addAll(w);
-		if(cnjt.contains(j)){
+		if(cnjt.containsAll(j)){
 			return subconjunto = "Si es un subconjunto";
 		}else{
 			return subconjunto = "No es un subconjunto";
@@ -84,18 +91,31 @@ public class Conjuntos {
 	
 	public String conjuntoMayor(Set<String> j, Set<String> w, Set<String> c){
 		if (j.size() > w.size()){
-			Mayor = 0;  // 0 = java mayor
+			mayor = 0;  // 0 = java mayor
 			cMayor = "El conjunto mayor es el de desarrolladores Java";
 		}else {
-			Mayor = 1; // 1 = web mayor
+			mayor = 1; // 1 = web mayor
 			cMayor = "El conjunto mayor es el de desarrolladores Web";
 		}
 		
-		if (c.size() > Mayor){
-			Mayor = 2; // 2 = cel es mayor
+		if (c.size() > mayor){
+			mayor = 2; // 2 = cel es mayor
 			cMayor = "El conjunto mayor es el de desarrolladores Celulares";
-		}
+		}else {
 		
+			if (j.size() == w.size() || j.size() == c.size() || w.size() == c.size()){
+			cMayor = "Hay dos conjuntos con la misma cantidad de desarrolladores";
+		
+			}
+		}
 		return cMayor;
 	}
+	
+	public int Mayor(){
+		return mayor;
+	}
+	
+	//public Set<String> getOrdenado (){
+		//return conjuntoOrdenado;
+	//}
 }

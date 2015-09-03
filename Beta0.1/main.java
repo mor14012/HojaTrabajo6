@@ -33,8 +33,8 @@ public class main{
 					System.out.println("   "+i+". "+implementation[i]);
 				Scanner input = new Scanner(System.in);
 				int option = input.nextInt();
-				factory Factory = new factory();
-				Set set = Factory.getSet(implementation[option]);
+				Factory factory = new Factory();
+				Set set = factory.getSet(implementation[option]);
 				if(set!=null){
 					javadev = new Conjuntos(implementation[option]);
 					webdev = new Conjuntos(implementation[option]);
@@ -104,8 +104,23 @@ public class main{
         System.out.println("" + conjunto.subconjunto(jDev, wDev));
         System.out.println("6. El conjunto (Java, Web o Celulares) que tenga la cantidad más grande de desarrolladores, y los nombres de esos desarrolladores.");
         System.out.println("" + conjunto.conjuntoMayor(jDev, wDev, pDev));
-        //System.out.println("7. Del conjunto que tenga la mayor cantidad de desarrolladores, desplegar la lista de los nombres de sus integrantes en orden ascendente.");
-        //System.out.println(conjunto.unionWebCel(wDev, pDev));
+        if(conjunto.Mayor() == 0) { 
+        	System.out.println("" + jDev); 
+        	System.out.println("7. Del conjunto que tenga la mayor cantidad de desarrolladores, desplegar la lista de los nombres de sus integrantes en orden ascendente.");
+            //System.out.println(javadev.getOrdenado());	
+        }
+        if(conjunto.Mayor() == 1) {
+        	System.out.println("" + wDev); 
+        	System.out.println("7. Del conjunto que tenga la mayor cantidad de desarrolladores, desplegar la lista de los nombres de sus integrantes en orden ascendente.");
+            //System.out.println(webdev.getOrdenado());
+        }
+        if(conjunto.Mayor() == 2) { 
+        	System.out.println("" + pDev); 
+        	System.out.println("7. Del conjunto que tenga la mayor cantidad de desarrolladores, desplegar la lista de los nombres de sus integrantes en orden ascendente.");
+            //System.out.println(phonedev.getOrdenado());
+        }
+        
+        
 	}
 }
 /*
