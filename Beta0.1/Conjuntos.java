@@ -13,12 +13,16 @@ public class Conjuntos {
 	factory fc = new factory();
 	private Set<String> conjunto;
 	private Set<String> cnjt;
-	private int cMayor;
+	private int Mayor;
+	private String cMayor;
+	private String subconjunto;
 	
 	public Conjuntos(String string){
 		conjunto = fc.getSet(string);
 		cnjt = fc.getSet(string);
-		cMayor = 0;
+		Mayor = 0;
+		cMayor = "";
+		subconjunto = "";
 		
 	}
 	
@@ -26,12 +30,15 @@ public class Conjuntos {
 		conjunto.add(e);
 	}
 	
+	
 	public Set<String> getConjunto(){
 		return conjunto;
 	}
 	
+	//j = java, w = web, c = celulares
+	
 	public Set<String> interseccionTres(Set<String> j, Set<String> w, Set<String> c){
-		//j = java, w = web, c = celulares
+		
 		cnjt.clear();
 		cnjt.addAll(j);
 		cnjt.retainAll(w);
@@ -55,38 +62,40 @@ public class Conjuntos {
 		return cnjt;
 	}
 	
-	public Set<String> unionWebCel(Set<String> w, Set<String> c){
+	public Set<String> unionWebCel(Set<String> j, Set<String> w, Set<String> c){
 		cnjt.clear();
 		cnjt.addAll(w);
 		cnjt.addAll(c);
+		cnjt.removeAll(j);
 		return cnjt;
 	}
 
-	public boolean subconjunto(Set<String> j, Set<String> w){
+	public String subconjunto(Set<String> j, Set<String> w){
 		cnjt.clear();
 		cnjt.addAll(w);
 		if(cnjt.contains(j)){
-			return true;
+			return subconjunto = "Si es un subconjunto";
 		}else{
-			return false;
+			return subconjunto = "No es un subconjunto";
 		}
 	}
 	
 	
 	
-	public int conjuntoMayor(Set<String> j, Set<String> w, Set<String> c){
+	public String conjuntoMayor(Set<String> j, Set<String> w, Set<String> c){
 		if (j.size() > w.size()){
-			cMayor = 0;  // 0 = java mayor
+			Mayor = 0;  // 0 = java mayor
+			cMayor = "El conjunto mayor es el de desarrolladores Java";
 		}else {
-			cMayor = 1; // 1 = web mayor
+			Mayor = 1; // 1 = web mayor
+			cMayor = "El conjunto mayor es el de desarrolladores Web";
 		}
 		
-		if (cMayor > c.size()){
-			cMayor = cMayor;
-		}else
-			cMayor = 2; // 2 = cel es mayor
+		if (c.size() > Mayor){
+			Mayor = 2; // 2 = cel es mayor
+			cMayor = "El conjunto mayor es el de desarrolladores Celulares";
+		}
 		
-		
-		return cnjt;
+		return cMayor;
 	}
 }

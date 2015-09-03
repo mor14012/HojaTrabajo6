@@ -16,7 +16,12 @@ public class main{
 	public static void main(String[] args) {
 		String [] implementation = {"HashSet", "TreeSet", "LinkedHashSet"};
 		String [] dev = {"Desarrollador Java", "Desarrollador Web", "Desarrollador Celulares"};
-		Set javadev, webdev, phonedev;
+		//Set javadev, webdev, phonedev;
+		
+		Conjuntos javadev;
+		Conjuntos webdev;
+		Conjuntos phonedev;
+		Conjuntos conjunto;
 		System.out.println("Bienvenido");
 		/*-----------
 		/  FACTORY  /
@@ -31,9 +36,14 @@ public class main{
 				factory Factory = new factory();
 				Set set = Factory.getSet(implementation[option]);
 				if(set!=null){
-					javadev = Factory.getSet(implementation[option]);
-					webdev = Factory.getSet(implementation[option]);
-					phonedev = Factory.getSet(implementation[option]);
+					javadev = new Conjuntos(implementation[option]);
+					webdev = new Conjuntos(implementation[option]);
+					phonedev = new Conjuntos(implementation[option]);
+					conjunto = new Conjuntos(implementation[option]);
+					
+					//javadev = Factory.getSet(implementation[option]);
+					//webdev = Factory.getSet(implementation[option]);
+					//phonedev = Factory.getSet(implementation[option]);
 					break;
 				}
 			}
@@ -59,11 +69,11 @@ public class main{
 					String grupo = input.nextLine();
 					if(grupo.equals("y")){
 						if(i==0)
-							javadev.add(nombre);
+							javadev.agregarElemento(nombre);
 						if(i==1)
-							webdev.add(nombre);
+							webdev.agregarElemento(nombre);
 						if(i==2)
-							phonedev.add(nombre);
+							phonedev.agregarElemento(nombre);
 					}
 				}
 			}
@@ -76,9 +86,26 @@ public class main{
 		/*-----------
 		/    SET     /
 		------------*/
-
-
 		
+		
+        Set<String> jDev=javadev.getConjunto();
+        Set<String> wDev=webdev.getConjunto();
+        Set<String> pDev=phonedev.getConjunto();
+        
+        System.out.println("1. Desarrolladores con experiencia en Java, web y celulares.");
+        System.out.println(conjunto.interseccionTres(jDev, wDev, pDev));
+        System.out.println("2. Desarrolladores con experiencia en Java pero que no tengan experiencia en web.");
+        System.out.println(conjunto.JavaNoWeb(jDev, wDev));
+        System.out.println("3. Desarrolladores con experiencia en Web y Celulares, pero que no tengan experiencia en java.");
+        System.out.println(conjunto.interseccionWebCel(jDev, wDev, pDev));
+        System.out.println("4. Desarrolladores con experiencia en Web o Celulares, pero que no tengan experiencia en java.");
+        System.out.println(conjunto.unionWebCel(jDev, wDev, pDev));
+        System.out.println("5. Indicar SI o NO el conjunto de desarrolladores Java es un subconjunto de Desarrolladores Web.");
+        System.out.println("" + conjunto.subconjunto(jDev, wDev));
+        System.out.println("6. El conjunto (Java, Web o Celulares) que tenga la cantidad más grande de desarrolladores, y los nombres de esos desarrolladores.");
+        System.out.println("" + conjunto.conjuntoMayor(jDev, wDev, pDev));
+        //System.out.println("7. Del conjunto que tenga la mayor cantidad de desarrolladores, desplegar la lista de los nombres de sus integrantes en orden ascendente.");
+        //System.out.println(conjunto.unionWebCel(wDev, pDev));
 	}
 }
 /*
