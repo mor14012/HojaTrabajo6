@@ -77,7 +77,6 @@ public class main{
 							if(!grupo.equals("n"))
 								System.out.println("Ingrese una opcion valida");
 						}
-
 					}
 					
 				}
